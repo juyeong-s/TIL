@@ -7,4 +7,4 @@ has_children: false
 permalink: /자바스크립트/str_strstring/
 ---
 
-javascript [jekyllrb.com](https://jekyllrb.com/)
+js str
