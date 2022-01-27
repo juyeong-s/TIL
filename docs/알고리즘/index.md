@@ -23,60 +23,67 @@ permalink: /algo/
 ​
 ![image](https://user-images.githubusercontent.com/63364990/151374639-784a7e4a-4d54-44c2-af86-8510fcc0e77e.png)
 ​
+
 위의 데이터 집합에서 8이란 데이터를 탐색하도록 하자. 우선 첫번째로 배열의 중간 요소를 선택한다.  
 mid \= 7;
 ​
+
 ![image](https://user-images.githubusercontent.com/63364990/151374659-38188d51-ab02-417e-bb94-36446d957b2e.png)
 ​
+
 두번째로는 중간 값과 찾으려는 값을 서로 비교한다.  
 만약 찾으려는 값이 중간 값보다 작다면 중앙 요소의 왼쪽에서 중간 값을 다시 택하고, 찾으려는 값이 중간 값보다 크다면 오른쪽에서 중간 값을 다시 택하게 된다.  
 그리곤 다시 이진 탐색(Binary Search)과정을 거치는 것이다.  
 위의 경우, 찾으려는 값인 8이 중간값 7보다 크므로 중간 값 왼쪽에 있는 데이터는 비교할 필요가 없는 것이다.  
 이제, 중간 값 7의 오른편에서 중간 값을 다시 택한다.
 ​
+
 ![image](https://user-images.githubusercontent.com/63364990/151374674-affbb9cd-0a94-473f-9229-9c54c0c1c0fe.png)
 ​
+
 이제는 중간 값이 9이고, 다시 찾으려는 값과 중간 값을 비교하게 됩니다.  
 찾으려는 값 8, mid \= 9;  
 8이 9보다 작으므로 중간 값 왼편에서 데이터를 찾아야 •한다.
 ​
+
 ![image](https://user-images.githubusercontent.com/63364990/151374689-ad01b879-a4ab-4610-b267-7b99ff89ce82.png)
 ​
+
 그럼 다시 왼쪽에서 중간 값을 선택한다.  
 mid \= 8;  
 남은 데이터 8이 중간 값으로 택해지게 되는데 찾으려는 데이터와 일치하므로 탐색을 끝마친다.
 ​
+
 ------------------
 ​
+
 ## **이진 탐색 코드 (JavaScript)**
 : 자바스크립트로 구현한 이진탐색 코드이다.
 ​
+
 ```
 function binarySearch(sortedArray, target) {
     let start = 0;
-    let end = sortedArray.length - 1;
-  
+    let end = sortedArray.length - 1;  
+
     while (start < end) {
-      const mid = start + Math.floor((start + end) / 2);
-​
+      const mid = start + Math.floor((start + end) / 2);  
+
       if (sortedArray[mid] === target)
-        return mid;
-​
+        return mid;  
       if (sortedArray[mid] < target)
         start = mid + 1;
       else
         end = mid - 1;
-    }
-  
+    }  
     return -1;
 }
   
+
 const nums = [10, 40, 70, 50, 30, 90, 80, 20, 60];
-const sortedNums = nums.sort();
-​
+const sortedNums = nums.sort();  
 console.log(binarySearch(sortedNums, 40));
-> 3
-​
+> 3  
 console.log(binarySearch(sortedNums, 100));
 > -1
 ```
