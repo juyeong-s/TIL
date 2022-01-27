@@ -6,7 +6,7 @@
 ## jekyll 세팅 방법
 
 1. `jekyll` 세팅 [jekyll](https://jekyllrb.com/docs/)
-2. `just-the-docs` 테마 사용법 [just-the-docs](https://pmarsceill.github.io/just-the-docs/)을 통해 테마 적용을 해주세요. (다른 테마도 가능)
+2. `just-the-docs` [just-the-docs](https://pmarsceill.github.io/just-the-docs/)을 통해 테마 적용합니다. (다른 테마도 가능)
 
 ## Navigation 카테고리 구성 방법
 
