@@ -7,6 +7,7 @@ permalink: /markdown/
 
 
 # 마크다운 문법 정리
+[깃허브를 참조해주세요.](https://github.com/juyeong-s/TIL/blob/main/docs/markdown.md)
 
 
 ## 머리말 (Header)
