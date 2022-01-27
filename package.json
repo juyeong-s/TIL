@@ -1,0 +1,22 @@
+{
+  "name": "til",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "commit": "commit/commit.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juyeong-s/TIL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juyeong-s/TIL/issues"
+  },
+  "homepage": "https://github.com/juyeong-s/TIL#readme"
+}
