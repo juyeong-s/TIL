@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 자바스크립트
-nav_order: 2
+nav_order: 3
 has_children: true
 permalink: /자바스크립트/
 ---
