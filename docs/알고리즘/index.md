@@ -21,6 +21,7 @@ permalink: /algo/
 ​
 ## **이진 탐색(Binary Search)의 탐색 과정**
 ​
+
 ![image](https://user-images.githubusercontent.com/63364990/151374639-784a7e4a-4d54-44c2-af86-8510fcc0e77e.png)
 ​
 
@@ -71,6 +72,8 @@ function binarySearch(sortedArray, target) {
 
       if (sortedArray[mid] === target)
         return mid;  
+
+
       if (sortedArray[mid] < target)
         start = mid + 1;
       else
@@ -81,7 +84,9 @@ function binarySearch(sortedArray, target) {
   
 
 const nums = [10, 40, 70, 50, 30, 90, 80, 20, 60];
-const sortedNums = nums.sort();  
+const sortedNums = nums.sort();
+
+
 console.log(binarySearch(sortedNums, 40));
 > 3  
 console.log(binarySearch(sortedNums, 100));
