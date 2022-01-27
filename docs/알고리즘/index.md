@@ -8,7 +8,7 @@ permalink: /algo/
 
 # [알고리즘] 이진 탐색 (이분 탐색, Binary Search)
 
-[##_Image|kage@ZBuBB/btrrJt3dUTP/rHapwrJrpztlJK2QNCJ2hK/img.gif|CDM|1.3|{"originWidth":600,"originHeight":400,"style":"alignCenter"}_##]
+![image](https://user-images.githubusercontent.com/63364990/151374565-654c998a-b744-4f21-a342-37342dd6bf21.png)
 ​
 ## **이진 탐색 (이분 탐색, Binary Search)**
 ​
@@ -19,15 +19,14 @@ permalink: /algo/
 ​
 ---
 ​
-## **이진 탐색(Binary Search)의 탐색 과정  
-**
+## **이진 탐색(Binary Search)의 탐색 과정**
 ​
-[##_Image|kage@dGZuN6/btrrJTAD7KV/n3njt3EKFgmdGbUbredC50/img.png|CDM|1.3|{"originWidth":338,"originHeight":79,"style":"alignCenter","width":338,"height":79}_##]
+![image](https://user-images.githubusercontent.com/63364990/151374639-784a7e4a-4d54-44c2-af86-8510fcc0e77e.png)
 ​
 위의 데이터 집합에서 8이란 데이터를 탐색하도록 하자. 우선 첫번째로 배열의 중간 요소를 선택한다.  
 mid \= 7;
 ​
-[##_Image|kage@ckPdvt/btrrJuA5Kqx/82KGBMumYRND4rsOYN1jP1/img.png|CDM|1.3|{"originWidth":338,"originHeight":79,"style":"alignCenter","width":338,"height":79}_##]
+![image](https://user-images.githubusercontent.com/63364990/151374659-38188d51-ab02-417e-bb94-36446d957b2e.png)
 ​
 두번째로는 중간 값과 찾으려는 값을 서로 비교한다.  
 만약 찾으려는 값이 중간 값보다 작다면 중앙 요소의 왼쪽에서 중간 값을 다시 택하고, 찾으려는 값이 중간 값보다 크다면 오른쪽에서 중간 값을 다시 택하게 된다.  
@@ -35,13 +34,13 @@ mid \= 7;
 위의 경우, 찾으려는 값인 8이 중간값 7보다 크므로 중간 값 왼쪽에 있는 데이터는 비교할 필요가 없는 것이다.  
 이제, 중간 값 7의 오른편에서 중간 값을 다시 택한다.
 ​
-[##_Image|kage@3eDeS/btrrF5B78cZ/k7MJ4K6fA8ATW7eNK1dT80/img.png|CDM|1.3|{"originWidth":338,"originHeight":79,"style":"alignCenter","width":338,"height":79}_##]
+![image](https://user-images.githubusercontent.com/63364990/151374674-affbb9cd-0a94-473f-9229-9c54c0c1c0fe.png)
 ​
 이제는 중간 값이 9이고, 다시 찾으려는 값과 중간 값을 비교하게 됩니다.  
 찾으려는 값 8, mid \= 9;  
 8이 9보다 작으므로 중간 값 왼편에서 데이터를 찾아야 •한다.
 ​
-[##_Image|kage@bGm32E/btrrLNmpfbg/KKiqlk20e2UpVEkkX6xWN1/img.png|CDM|1.3|{"originWidth":338,"originHeight":79,"style":"alignCenter","width":338,"height":79}_##]
+![image](https://user-images.githubusercontent.com/63364990/151374689-ad01b879-a4ab-4610-b267-7b99ff89ce82.png)
 ​
 그럼 다시 왼쪽에서 중간 값을 선택한다.  
 mid \= 8;  
@@ -50,7 +49,6 @@ mid \= 8;
 ---
 ​
 ## **이진 탐색 코드 (JavaScript)**
-​
 : 자바스크립트로 구현한 이진탐색 코드이다.
 ​
 ```
