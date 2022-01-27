@@ -76,7 +76,7 @@ example code box
 ## 링크
 
 - <https://www.github.com>
-- [Github](https://www.github.com)
+- [ruby's Github](https://github.com/juyeong-s)
 
 ## 강조
 
