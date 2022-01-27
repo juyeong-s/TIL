@@ -1,5 +1,6 @@
 ---
-layout: home
-nav_order: 1
+layout: page
+title: About
+nav_order: 2
+permalink: /about/
 ---
-## 개인 공부용 블로그입니당 :)
