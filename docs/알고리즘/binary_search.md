@@ -9,8 +9,10 @@ permalink: /algo/bs
 
 # [알고리즘] 이진 탐색 (이분 탐색, Binary Search)
 
+
 ![image](https://user-images.githubusercontent.com/63364990/151374565-654c998a-b744-4f21-a342-37342dd6bf21.png)
 ​
+
 ## **이진 탐색 (이분 탐색, Binary Search)**
 ​
 -   이진 탐색 알고리즘은 **정렬되어 있는 리스트에서** **탐색 범위를 절반씩 좁혀가며 데이터를 탐색**하는 방법이다.
@@ -18,8 +20,10 @@ permalink: /algo/bs
 -   변수 3개(start, mid, end)를 사용하여 탐색한다.  
     **찾고자하는 데이터와 배열의 중간(mid) 위치에 있는 데이터를 반복적으로 비교해서 원하는 데이터를 찾는 것**이 이진 탐색이다.
 ​
+
 ------------------
 ​
+
 ## **이진 탐색(Binary Search)의 탐색 과정**
 ​
 
