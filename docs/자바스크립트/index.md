@@ -6,4 +6,4 @@ has_children: true
 permalink: /js/
 ---
 
-# javascript
+# 자바스크립트
