@@ -108,7 +108,7 @@ function main(){
 ---
 
 ### 풀어본 문제
-프로그래머스 : [<순위>](https://programmers.co.kr/learn/courses/30/lessons/49191)
+프로그래머스 : [순위](https://programmers.co.kr/learn/courses/30/lessons/49191)
 
 정답 코드(플로이드 워셜 활용)
 ```
