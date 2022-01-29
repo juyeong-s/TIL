@@ -32,6 +32,8 @@ permalink: /algo/graph/fw
 ![image](https://user-images.githubusercontent.com/63364990/151660521-5f70bc8c-c86a-4956-949c-02b49184593a.png)  
 다음 그래프를 2차원 행렬로 나타내면 다음과 같다. Infinity는 해당 노드에서 특정 노드까지 가는 경로가 없다는 뜻이다.  
 - 초기화  
+
+
 | 0 | 5 | Infinity | 9 | 1 |
 | --- | --- | --- | --- | --- |
 | 5 | 0 | 2 | Infinity | Infinity |
