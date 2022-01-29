@@ -2,7 +2,7 @@
 layout: page
 title: 플로이드 와샬(Floyd-Warshall)
 parent: Graph
-nav_order: 2
+nav_order: 1
 has_children: false
 permalink: /algo/graph/fw
 ---
