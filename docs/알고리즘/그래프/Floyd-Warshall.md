@@ -104,3 +104,45 @@ function main(){
 ```  
 
 > d[시작정점][인접정점] > d[시작정점][거쳐야할 정점] + d[거쳐야할 정점][인접정점]
+
+---
+
+### 풀어본 문제
+프로그래머스 : [<순위>](https://programmers.co.kr/learn/courses/30/lessons/49191)
+
+정답 코드(플로이드 워셜 활용)
+```
+function solution(n, results) {
+    let answer = 0;
+    let graph = Array.from({ length: n + 1 }, () => new Array(n + 1).fill(Infinity));
+
+    results.forEach((edge, idx) => {
+        const [winner, loser] = edge;
+        graph[winner][loser] = 1;
+        graph[loser][winner] = -1;
+        graph[winner][winner] = 0;
+        graph[loser][loser] = 0;
+    });
+    
+    for(let i = 1; i <= n; i++){
+        for(let j = 1; j <= n; j++){
+            for(let k = 1; k <= n; k++){
+                if(graph[j][i] === 1 && graph[i][k] === 1) graph[j][k] = 1;
+                if(graph[j][i] === -1 && graph[i][k] === -1) graph[j][k] = -1;
+            }
+        }
+    }
+    
+    for(let i = 1; i <= n; i++) if(!graph[i].slice(1).includes(Infinity)) answer++;
+    return answer;
+}
+```
+
+- [A, B] : A선수가 B선수를 이긴다는 뜻  
+배열 형태로 쥐어주고, 어떤 선수가 몇 순위에 있는지 순위를 정확히 알 수 있는 선수의 수만 리턴하는 문제이다.  
+
+이 문제에서 왜 플로이드 워셜을 활용했냐면, 다른 모드 노드와 거리가 Infinity가 아닌 어떤 정수 값이라면, 어떠한 노드를 거쳐서 갈 수 있다는 뜻이고, 거쳐서 갈 수 있다는 건 순위를 알 수 있다는 뜻이다.  
+
+각 라운드마다 모든 중간 노드를 거쳐가면서 **아래의 조건**을 판단해 순위를 알 수 있는 경우, 업데이트를 하는 문제이다.  
+- a가 b를 이기고, b가 c를 이기면 a가 c를 이김
+- a가 b에게 지고, b가 c에게 지면 a가 c에게 짐
