@@ -1,7 +1,8 @@
 ---
 layout: page
 title: 플로이드 와샬(Floyd-Warshall)
-parent: algorithm/Graph
+parent: Graph
+grand_parent: algorithm
 nav_order: 1
 has_children: false
 permalink: /algo/graph/fw
