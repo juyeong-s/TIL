@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 플로이드 와샬(Floyd-Warshall)
+title: 플로이드 워셜(Floyd-Warshall)
 parent: Graph
 grand_parent: algorithm
 nav_order: 1
@@ -8,10 +8,10 @@ has_children: false
 permalink: /algo/graph/fw
 ---
 
-# 플로이드 와샬(Floyd-Warshall)
+# 플로이드 워셜(Floyd-Warshall)
 
 그래프에서 정점끼리의 최단 경로를 구하는 방법은 여러가지가 있다.  
-오늘은 그 중 플로이드 와샬에 대해 공부해보려고 한다.
+오늘은 그 중 플로이드 워셜에 대해 공부해보려고 한다.
 
 최단 경로를 구하는 방법은 다음과 같이 있다.
 - 하나의 정점에서 다른 하나의 정점까지의 최단 경로
@@ -19,8 +19,10 @@ permalink: /algo/graph/fw
 - 하나의 목적지로 가는 모든 최단 경로
 - 모든 정점에서 모든 정점까지의 최단 경로
 
-## 플로이드 와샬 알고리즘이란?
-`플로이드 와샬` 알고리즘이란, 위 경우에서 마지막에 해당되는 `모든 정점에서 모든 정점까지의 최단 경로`를 구하는 알고리즘이다.  
+---
+
+## 플로이드 워셜 알고리즘이란?
+`플로이드 워셜` 알고리즘이란, 위 경우에서 마지막에 해당되는 `모든 정점에서 모든 정점까지의 최단 경로`를 구하는 알고리즘이다.  
 다익스트라와 벨만포드 (`하나의 정점에서 다른 모든 정점까지의 최단 경로`) 방법과는 다르다.  
 - 다익스트라 알고리즘과는 다르게 음의 간선도 사용할 수 있다.
 
@@ -31,14 +33,74 @@ permalink: /algo/graph/fw
 
 ![image](https://user-images.githubusercontent.com/63364990/151660521-5f70bc8c-c86a-4956-949c-02b49184593a.png)  
 다음 그래프를 2차원 행렬로 나타내면 다음과 같다. Infinity는 해당 노드에서 특정 노드까지 가는 경로가 없다는 뜻이다.  
-- 초기화  
 
+- **초기화**  
+(배열 형태로 0번 인덱스, 1번 인덱스 ... 순으로 가로로 보면 된다.)
 
-| 0 | 5 | Infinity | 9 | 1 |
-| --- | --- | --- | --- | --- |
-| 5 | 0 | 2 | Infinity | Infinity |
-| Infinity | 2 | 0 | 7 | Infinity |
-| 9 | Infinity | 7 | 0 | 2 |
-| 1 | Infinity | Infinity | 2 | 0 |
+| 0 idx | 0 | 5 | Infinity | 9 | 1 |
+| --- | --- | --- | --- | --- | --- |
+| 1 idx | 5 | 0 | 2 | Infinity | Infinity |
+| 2 idx | Infinity | 2 | 0 | 7 | Infinity |
+| 3 idx | 9 | Infinity | 7 | 0 | 2 |
+| 4 idx | 1 | Infinity | Infinity | 2 | 0 |  
+
 
 - **1 라운드** : 1번 노드를 새로운 중간 노드로 선택
+이 그래프는 1번부터 5번 노드까지 존재하므로 알고리즘은 총 5라운드의 과정을 거친다.  
+즉, 모든 노드들을 중간 노드로 선정하는 과정을 각 라운드마다 거치게 된다.  
+예를 들어 2라운드는 2번 노드가 중간 노드, 3라운드는 3번 노드가 중간 노드가 될 것이다.  
+2번에서 4번으로 가는 길은 원래 없었으나, 1번 노드를 중간 노드로 선정할 경우 2 -> 1 -> 4(길이 5+9=14) 로 갈 수 있게 된다. (업데이트된 길이는 📍로 표시하겠다.)  
+
+
+| 0 idx | 0 | 5 | Infinity | 9 | 1 |
+| --- | --- | --- | --- | --- | --- |
+| 1 idx | 5 | 0 | 2 | 14📍 | 6📍 |
+| 2 idx | Infinity | 2 | 0 | 7 | Infinity |
+| 3 idx | 9 | 14📍 | 7 | 0 | 2 |
+| 4 idx | 1 | 6📍 | Infinity | 2 | 0 |
+
+- **2 라운드** : 2번 노드를 새로운 중간 노드로 선택  
+1번-3번 경로, 3번-5번 경로가 새로 생기게 된다.
+
+| 0 idx | 0 | 5 | 7📍 | 9 | 1 |
+| --- | --- | --- | --- | --- | --- |
+| 1 idx | 5 | 0 | 2 | 14 | 6 |
+| 2 idx | 7📍 | 2 | 0 | 7 | 8📍 |
+| 3 idx | 9 | 14 | 7 | 0 | 2 |
+| 4 idx | 1 | 6 | 8📍 | 2 | 0 |
+
+이런 과정으로 5번 노드를 중간 노드로 선정하는 5라운드까지 모두 거치면 행렬에는 모든 노드 간 최단 거리가 들어가게 된다.
+
+## 소스코드 - 자바스크립트
+- 플로이드-워셜 알고리즘의 시간 복잡도 = O(n^3)
+
+```
+const INF = Infinity;  
+
+function floydWarshall(dist){
+    const len = dist.length;
+    for(let i = 0 ; i < len ; i++){
+        for(let j = 0 ; j < len ; j++){
+            for(let k = 0 ; k < len ; k++){
+                dist[j][k] = dist[j][i] + dist[i][k];
+            }
+        }
+    }
+}  
+
+function main(){
+    const graph = [
+        [0, 5, Infinity, 9, 1],
+        [5, 0, 2, Infinity, Infinity],
+        [Infinity, 2, 0, 7, Infinity],
+        [9, Infinity, 7, 0, 2],
+        [1, Infinity, Infinity, 2, 0]
+    ];  
+
+    floydWarshall(graph);  
+
+    return graph;
+}
+```  
+
+> d[시작정점][인접정점] > d[시작정점][거쳐야할 정점] + d[거쳐야할 정점][인접정점]
