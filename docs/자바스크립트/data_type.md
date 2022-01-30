@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 자료형
+title: 데이터 타입
 parent: 자바스크립트
 nav_order: 4
 has_children: false
