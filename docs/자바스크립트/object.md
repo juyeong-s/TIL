@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 객체
+title: 객체(object)
 parent: 자바스크립트
 nav_order: 5
 has_children: false
