@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 이진탐색(binary search)
-parent: algorithm
+parent: 알고리즘
 nav_order: 1
 has_children: false
 permalink: /algo/bs

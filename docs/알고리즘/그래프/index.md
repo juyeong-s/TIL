@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Graph
-parent: algorithm
+parent: 알고리즘
 nav_order: 2
 has_children: true
 permalink: /algo/graph/
