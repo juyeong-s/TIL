@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Graph
+title: 그래프
 parent: 알고리즘
 nav_order: 2
 has_children: true

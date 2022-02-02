@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 플로이드 워셜(Floyd-Warshall)
-parent: Graph
+parent: 그래프
 grand_parent: 알고리즘
 nav_order: 1
 has_children: false
