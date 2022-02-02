@@ -168,6 +168,11 @@ b = 20kg, c = 30kg을 가져갈 때, 최대 50kg이 되고 가치의 합이 220�
 ```
 // rows: 각 item을 나타냄
 // cols: 현재 가방의 최대한도가 col이라면 얼마까지 넣을 수 있는지
+// W: 최대 무게
+// N: 총 물건의 개수
+// 예시
+// weight: [3, 6, 2, 8, 12]
+// valuew: [5, 4, 9, 2, 10]
 
 function knapSack(W, weight, value, N) {
   const memo = Array.from({ length: N + 1 }, () => Array(W + 1).fill(0));
@@ -183,3 +188,9 @@ function knapSack(W, weight, value, N) {
   return memo[N][W];    // 마지막 item까지 판단하고, 최대 weight 한도에서 가질 수 있는 최대 value
 }
 ```
+
+- `Math.max(memo[n - 1][w - weight[n - 1]] + value[n - 1], memo[n - 1][w])` 이 부분의 뜻은,
+  - 현재 들어오려는 아이템의 무게가 최대 한도보다 작을 경우,
+    - `memo[n - 1][w - weight[n - 1]]` : 현재 넣으려는 물건이 n번째 물건이니까(아직 물건이 안들어갔음), n-1번째 물건까지 넣었을 때 최대한도 k무게에서 현재 들어오려는 아이템의 무게를 뺀 곳의 가치에, (-> 들어갈 공간을 마련하기 위해)
+    - `+ value[n - 1]` : 현재 들어오려는 아이템의 가치를 더해주는 것이다.
+  - 위의 가치 값이 더 큰지, 이전까지 누적된 가치 값이 더 큰지 비교하는 문장이다.
