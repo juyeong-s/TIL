@@ -2,7 +2,7 @@
 layout: page
 title: 자바스크립트 변수
 parent: 자바스크립트
-nav_order: 3
+nav_order: 6
 has_children: false
 permalink: /js/variable/
 ---

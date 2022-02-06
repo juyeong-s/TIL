@@ -2,7 +2,7 @@
 layout: page
 title: 배열
 parent: 자바스크립트
-nav_order: 6
+nav_order: 9
 has_children: false
 permalink: /js/array/
 ---

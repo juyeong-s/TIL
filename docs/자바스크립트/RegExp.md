@@ -2,7 +2,7 @@
 layout: page
 title: 정규 표현식(Regular Expression)
 parent: 자바스크립트
-nav_order: 2
+nav_order: 5
 has_children: false
 permalink: /js/regular_expression/
 ---

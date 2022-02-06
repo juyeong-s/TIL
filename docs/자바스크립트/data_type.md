@@ -2,7 +2,7 @@
 layout: page
 title: 데이터 타입
 parent: 자바스크립트
-nav_order: 4
+nav_order: 1
 has_children: false
 permalink: /js/data_type/
 ---
