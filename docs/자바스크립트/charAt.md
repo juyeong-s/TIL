@@ -55,5 +55,7 @@ console.log(str[9999]); // undefined
     - **charAt(index) 함수**: `빈 문자열('')`을 리턴
     - **문자열[index]**: `undefined`를 리턴
 
+---  
+
 이 문제를 풀다가 알아낸 사실이다. 쉬운 문젠데 자꾸 undefined가 떠서 엄청 애먹은 문제였다 ㅎㅎ..  
 - [JadenCase 문자열 만들기](https://programmers.co.kr/learn/courses/30/lessons/12951#)
