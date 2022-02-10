@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Css 복합 selector
+title: 복합 selector
 parent: Css
 nav_order: 1
 has_children: false
