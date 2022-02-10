@@ -318,6 +318,7 @@ h1 { color: $jb-color; }
 ### 🍉8.3\. 예제  
 
 **Scss**  
+
 ```
 @mixin text {
   p {
@@ -326,9 +327,9 @@ h1 { color: $jb-color; }
 }
 
 @include text;
-
 ```  
 - `@include`는 선택자 안에서 사용할 수도 있다.  
+
 ```
 @mixin text {
   color: red;
@@ -351,6 +352,7 @@ p {
 ```  
 
 - 인자를 사용하고, 특정 인자에는 기본값을 설정한 경우  
+
 ```
 //선언 시
 @mixin colorBox($color, $fontsize: 12px) {
