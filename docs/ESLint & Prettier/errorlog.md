@@ -11,6 +11,7 @@ permalink: /es/2/
 
 ## 1\. "Delete(Insert) `;`eslint" 오류  
 - **eslint**의 rules와 **prettier**에 둘다 같은 규칙을 설정해주어서 나는 오류였다.  
+
 ```
 "rules": {
     "semi": [1, "always"],
