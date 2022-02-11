@@ -10,6 +10,7 @@ permalink: /ts/intro/
 # 1\. 타입스크립트(ts)란?
 
 타입스크립트는 자바스크립트를 기반으로한 정적 타입의 언어이다.  
+한마디로 자바스크립트에 타입을 부여한 언어다.   
 자바스크립트는 아래와 같은 특징을 가지고 있으므로  
 - Prototype-based Object Oriented Language
 - Scope와 this
