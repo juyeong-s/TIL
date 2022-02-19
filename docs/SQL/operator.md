@@ -10,7 +10,7 @@ permalink: /sql/operator/
 # SQL 논리 연산자  
 ## IN, EXISTS, NOT IN, NOT EXISTS  
 
-## 1\. 데이터 세팅
+## ⚽️ 데이터 세팅
 
 시작하기 전 가상 데이터를 세팅해놓자.  
 
@@ -24,7 +24,7 @@ permalink: /sql/operator/
 
 `NULL`값에 주의하자
 
-## 1\. IN
+## 🎀1\. IN
 
 ```
 SELECT * FROM FOOD f
@@ -43,7 +43,7 @@ WHERE f.number IN (SELECT c.number FROM COLOR c);
 
 **여기서 중요한 것**, 쿼리에서 `COLOR`에 먼저 접근하여, number 값들을 가져와 리스트로 IN 이하에 뿌려주고, 그 이후에 `FOOD`에서 하나의 레코드씩 IN 이하의 요소들과 일치하는지 비교한다는 것이다.
 
-## 2\. EXISTS
+## 🎈2\. EXISTS
 
 ```
 SELECT * FROM FOOD f
@@ -83,7 +83,7 @@ WHERE EXISTS (SELECT c.number FROM COLOR c WHERE c.number = f.number);
 
 이 결과는 사실 IN 구문과 같은 결과이다. 하지만 내부적으로 쿼리가 동작하는 방식은 아예 다르다는 것에 주의하자.
 
-## 3\. NOT IN
+## 🍬3\. NOT IN
 
 ```
 SELECT * FROM FOOD f
@@ -134,7 +134,7 @@ WHERE f.number NOT IN (
 **결과**  
 ![image](https://t1.daumcdn.net/cfile/tistory/991A69395CDD011407)
 
-## 4\. NOT EXISTS
+## 🍯4\. NOT EXISTS
 
 마지막으로 `NOT EXISTS`에 대해 알아보자.
 
