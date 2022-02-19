@@ -22,6 +22,8 @@ permalink: /sql/operator/
 
 ![image](https://t1.daumcdn.net/cfile/tistory/995944405CDCECBD2D)
 
+`NULL`값에 주의하자
+
 ## 1\. IN
 
 ```
@@ -83,3 +85,78 @@ WHERE EXISTS (SELECT c.number FROM COLOR c WHERE c.number = f.number);
 
 ## 3\. NOT IN
 
+```
+SELECT * FROM FOOD f
+WHERE f.number NOT IN (SELECT c.number FROM COLOR c);
+```
+
+**결과**
+
+![image](https://t1.daumcdn.net/cfile/tistory/993BB6365CDCFE2907)
+
+위의 쿼리를 실행하니 위의 사진과 같이 아무런 결과도 출력되지 않았다. 처음에 알아본 `IN`은 먼저 소괄호의 서브쿼리부터 실행한다. 그럼 `(1, 2, 3, 4, NULL)`과 같이 출력된다.  
+
+아래 쿼리와 같게 된다.
+
+```
+SELECT * FROM FOOD f
+WHERE f.number NOT IN ( 1, 2, 3, 4, 5, 6, NULL );
+```
+
+그럼 이제 FOOD에서 하나의 레코드씩 가져올 것이고 NOT IN 구문이기 때문에 소괄호의 요소들과 일치하지 않아야 결과로 반환될 것이다.
+
+그렇다면 FOOD에서 `(7)`일때는 `(1, 2, 3, 4, NULL)` 이 안에 없어서 출력이 되야 할텐데 출력이 되지 않는다. 왜일까?  
+
+```
+SELECT * FROM TB_FOOD f
+WHERE f.number != 1
+AND f.number != 2
+AND f.number != 3
+AND f.number != 4
+AND f.number != 5
+AND f.number != 6
+AND f.number != NULL;
+```
+
+`NOT IN` 구문은 위 처럼 FOOD에서 가져온 레코드의 number값이 소괄호의 모든 요소들과 일치하지 않는지 판단한다. 그런데 위에서 `NULL`과 비교 연산을 하게 되는데, 이때 `NULL`과의 비교 연산은 항상 UNKNOWN값을 반환하게 된다. (`IS NULL`로 비교해야함)
+
+따라서 WHERE절 이하가 TRUE가 아니기 때문에 해당 레코드가 출력되지 읺는 것이다.
+
+다음과 같이 쿼리를 수정해야한다.
+
+```
+SELECT * FROM FOOD f
+WHERE f.number NOT IN (
+    SELECT c.number FROM COLOR c 
+    WHERE c.number IS NOT NULL);
+```
+
+**결과**  
+![image](https://t1.daumcdn.net/cfile/tistory/991A69395CDD011407)
+
+## 4\. NOT EXISTS
+
+마지막으로 `NOT EXISTS`에 대해 알아보자.
+
+```
+SELECT * FROM FOOD f
+WHERE NOT EXISTS (
+    SELECT c.number FROM COLOR c
+    WHERE c.number = f.number);
+```
+
+**결과**
+
+![image](https://t1.daumcdn.net/cfile/tistory/99C8EF3C5CDD040313)
+
+위에서 `NOT IN`을 사용했을 때에는 number 값이 NULL인 레코드는 출력되지 않았습니다. `IN` 구문은 요소간에 비교 연산으로 레코드가 출력되는데 `NULL` 값에 대한 비교연산은 항상 `UNKNOWN`을 반환하기 때문이었다.
+
+`NOT EXISTS`는 `EXISTS`와 반대이다. `EXISTS` 구문이 값이 존재할 때 해당 레코드를 출력한다면, `NOT EXISTS` 구문은 해당 서브쿼리의 값이 존재하지 않으면 해당 레코드를 출력한다.
+
+위에서 `COLOR`에는 `(1,2,3,4,5,6,NULL)`이 들어있었고, 그 중 FOOD에 없는 `(7,8,9,10)`이 출력되어야 하는데, NULL도 함께 출력된 것이다.
+
+하지만 위에서 본것과 같이 `NULL` 비교연산은 항상 `UNKNOWN`이기 때문에 존재하지 않는 것으로 나와서 출력되는 것이다.
+
+---
+
+여기까지 SQL의 연산자에 대해서 알아보았다. 다음 시간에는 SQL `JOIN`에 대해 알아보자!!
