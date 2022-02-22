@@ -45,24 +45,9 @@ _html_
 ```
 
 _결과_  
-<style>
-.banner {
-  position: absolute;
-  left: 40px;
-  width: calc(100% - 80px);
-  border: solid black 1px;
-  box-shadow: 1px 2px;
-  background-color: yellow;
-  padding: 6px;
-  text-align: center;
-  box-sizing: border-box;
-}
-</style>
+![image](https://user-images.githubusercontent.com/63364990/155206555-dc0151d0-9665-4398-966a-161c81eb176e.png)
 
-<div class="banner">이건 현수막입니다!</div>
-
-
-## 계산 순서
+### 계산 순서
 
 - 왼쪽에서 오른쪽으로 계산된다.
 
