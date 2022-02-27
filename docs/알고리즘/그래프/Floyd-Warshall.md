@@ -82,7 +82,8 @@ function floydWarshall(dist){
     for(let i = 0 ; i < len ; i++){
         for(let j = 0 ; j < len ; j++){
             for(let k = 0 ; k < len ; k++){
-                dist[j][k] = dist[j][i] + dist[i][k];
+                if(dist[j][k] > dist[j][i] + dist[i][k])
+                    dist[j][k] = dist[j][i] + dist[i][k];
             }
         }
     }
