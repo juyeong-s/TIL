@@ -79,9 +79,9 @@ const INF = Infinity;
 
 function floydWarshall(dist){
     const len = dist.length;
-    for(let i = 0 ; i < len ; i++){
-        for(let j = 0 ; j < len ; j++){
-            for(let k = 0 ; k < len ; k++){
+    for(let i = 0 ; i < len ; i++){ // 들를 곳
+        for(let j = 0 ; j < len ; j++){ //row 하나씩 뽑아서 방문
+            for(let k = 0 ; k < len ; k++){ // j row에서 k col 하나씩 들름
                 if(dist[j][k] > dist[j][i] + dist[i][k])
                     dist[j][k] = dist[j][i] + dist[i][k];
             }
