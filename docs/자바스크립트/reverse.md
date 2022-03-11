@@ -13,7 +13,7 @@ permalink: /js/reverse/
 
 > array.reverse()
 
-이 함수를 array를 거꾸로 뒤집는다. 주의할 것은 원본 배열이 바뀐다는 것이다.
+이 함수는 array를 거꾸로 뒤집는다. 주의할 것은 원본 배열이 바뀐다는 것이다.
 
 ```
 const arr = ['Apple', 'Banana', 'Orange'];
