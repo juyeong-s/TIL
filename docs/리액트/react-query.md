@@ -102,7 +102,12 @@ const { data, isLoading, error } = useQuery(queryKey, queryFn?, options?);
 ### QueryKey(queryKey)  
 - `queryKey`를 기반으로 데이터 캐싱을 관리한다.
 - 문자열 또는 배열로 지정.  
-![무제](https://user-images.githubusercontent.com/63364990/162569617-7bb5082c-d299-4451-a7d6-4c89ae16f707.png)  
+```
+// 문자열
+useQuery('todos', ...);
+// 배열
+useQuery(['todos'], ...);
+```
 
 - 쿼리가 변수에 의존하는 경우에는 `QueryKey` 에도 해당 변수를 추가해주어야한다.  
 ![무제](https://user-images.githubusercontent.com/63364990/162569631-b1f7d40e-b790-46b4-b009-4be5df03a152.png)  
