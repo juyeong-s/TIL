@@ -25,7 +25,7 @@ permalink: /react/react-query
 
 
 ## react-query 상태  
-#### 1\. Query들은 4개의 상태를 가진다.  
+### 1\. Query들은 4개의 상태를 가진다.  
 - **fresh**: 새롭게 추가된 쿼리 & 만료되지 않은 쿼리. -> 컴포넌트가 마운트, 업데이트되어도 데이터 재요청 ❌
 - **stale**: 인스턴스가 존재하지만 이미 패칭이 완료된 쿼리. -> 컴포넌트가 마운트, 업데이트되면 데이터 재요청(리패칭/ refetching) ⭕️
     + 특정 쿼리가 `stale`된 상태에서 같은 쿼리 마운트를 시도하면 캐싱된 데이터를 반환하면서 `리패칭(refetching)`을 시도한다.
@@ -33,7 +33,7 @@ permalink: /react/react-query
 - **inactive**: `active` 인스턴스가 하나도 없는 쿼리(비활성화된 쿼리). -> 특정 시간이 지나면 가비지 컬렉터(GC)에 의해 제거된다.
     + `inactive`된 이후에도 `cacheTime` 동안 캐시된 데이터가 유지된다. `cacheTime`이 지나면 가비지 컬렉터(GC)에 의해 제거.
 
-#### 2\. option  
+### 2\. option  
 - **staleTime**: `fresh` 상태에서 `stale` 상태로 전환되는 시간 (default: 0)
     - 보통 쉽게 변하지 않는 컴포넌트에 한해서 `staleTime`을 지정한다.
 - **cacheTime**: `inactive` 상태에서 `cachedTime`만큼의 시간이 지나면 `GC(가비지 컬렉션/Garbage Collection)`에 의해 제거된다. (default: 30000 = 5분)
