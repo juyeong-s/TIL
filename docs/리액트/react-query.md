@@ -155,3 +155,4 @@ useQuery(['todos'], ...);
 [react-query를 이해하는 몇가지 지식과 질문들](https://darrengwon.tistory.com/1517)  
 [react-query-velog](https://velog.io/@jkl1545/React-Query)  
 [React-Query 살펴보기](https://maxkim-j.github.io/posts/react-query-preview)
+[[React Query] 리액트 쿼리 시작하기 (useQuery)](https://velog.io/@kimhyo_0218/React-Query-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%BF%BC%EB%A6%AC-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-useQuery)
