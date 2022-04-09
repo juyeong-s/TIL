@@ -43,9 +43,9 @@ permalink: /react/react-query
 
 ## refetching의 조건  
 1\. 런타임 상황에 새로운 인스턴스가 만들어졌을 때  
-1\. window가 다시 포커스가 되었을때  
-2\. 네트워크가 다시 연결되었을 때  
-3\. `refetch interval`(다시 가져오기 간격)이 있을때: 요청 실패한 쿼리는 설정한 `refetch interval`만큼 `refetch`를 한다.
+2\. window가 다시 포커스가 되었을때  
+3\. 네트워크가 다시 연결되었을 때  
+4\. `refetch interval`(다시 가져오기 간격)이 있을때: 요청 실패한 쿼리는 설정한 `refetch interval`만큼 `refetch`를 한다.
 
 
 ### refetching에 관한 질문과 답들  
@@ -56,6 +56,7 @@ permalink: /react/react-query
 
 ## 설치 & 초기세팅  
 - 설치  
+
 우선 리액트 앱을 만들어준다.  
 `$ npx create-react-app learn-react-query`  
 
@@ -66,8 +67,7 @@ $ npm install react-query
 $ yarn add react-query
 ```  
 
-`App.js`에 필요한 함수를 import를 한다.  
-기본적으로 `QueryClientProvider`이하로 컴포넌트를 감싼다.  
+`App.js`에 필요한 함수를 import를 한다. 기본적으로 `QueryClientProvider`이하로 컴포넌트를 감싼다.  
 캐시를 관리하기 위해 `QueryClient` 인스턴스를 생성한 후 `QueryClientProvider`를 통해 컴포넌트가 `QueryClient` 인스턴스에 접근할 수 있도록 `queryClient`를 내려보내준다.  
 ![image](https://user-images.githubusercontent.com/63364990/162568763-e21b7efe-2253-460a-a1a4-e1e2798528de.png)
 
@@ -102,7 +102,6 @@ const { data, isLoading, error } = useQuery(queryKey, queryFn?, options?);
 ### QueryKey(queryKey)  
 - `queryKey`를 기반으로 데이터 캐싱을 관리한다.
 - 문자열 또는 배열로 지정.  
-
 ![무제](https://user-images.githubusercontent.com/63364990/162569617-7bb5082c-d299-4451-a7d6-4c89ae16f707.png)  
 
 - 쿼리가 변수에 의존하는 경우에는 `QueryKey` 에도 해당 변수를 추가해주어야한다.  
@@ -114,7 +113,6 @@ const { data, isLoading, error } = useQuery(queryKey, queryFn?, options?);
 
 ### Query Functions(queryFn)  
 - `useQuery` 의 두번째 인자에는 `Promise`를 리턴하는 함수를 넣어주어야한다.  
-
 ![무제](https://user-images.githubusercontent.com/63364990/162573469-a7b126e5-1c29-4b2b-9d6c-167d7e7c610c.png)
 
 
@@ -124,8 +122,7 @@ const { data, isLoading, error } = useQuery(queryKey, queryFn?, options?);
 
 **enabled (boolean)**  
 - `enabled`는 쿼리가 자동으로 실행되지 않게 설정하는 옵션이다.
-- 아래의 코드는 `id`가 존재할 때만 쿼리 요청을 한다는 의미의 코드이다.
-
+- 아래의 코드는 `id`가 존재할 때만 쿼리 요청을 한다는 의미의 코드이다.  
 ![무제](https://user-images.githubusercontent.com/63364990/162573575-cfa2388f-3dd6-452b-8006-1d616dd109b5.png)
 
 **retry (boolean | number | (failureCount: number, error: TError) => boolean)**  
