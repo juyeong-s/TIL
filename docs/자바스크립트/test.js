@@ -43,3 +43,16 @@ function bar() {
 
 foo();  // ?
 bar();  // ?
+
+const x = 1;
+
+// 1번
+function outer() {
+    const x = 10;
+    const inner = function () { console.log(x) };   // 2번
+    return inner;
+}
+
+// outer함수를 호출하면 중첩함수 inner를 반환한다.
+const innerFunc = outer();  // 3번
+innerFunc();    // 4번 -> 10
