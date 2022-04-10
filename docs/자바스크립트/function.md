@@ -2,7 +2,7 @@
 layout: page
 title: 함수
 parent: 자바스크립트
-nav_order: 10
+nav_order: 11
 has_children: false
 permalink: /js/function/
 ---

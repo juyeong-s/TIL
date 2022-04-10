@@ -2,7 +2,7 @@
 layout: page
 title: reverse()
 parent: 자바스크립트
-nav_order: 13
+nav_order: 5
 has_children: false
 permalink: /js/reverse/
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: this
 parent: 자바스크립트
-nav_order: 8
+nav_order: 3
 has_children: false
 permalink: /js/this/
 ---

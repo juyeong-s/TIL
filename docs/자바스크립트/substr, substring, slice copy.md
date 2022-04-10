@@ -2,7 +2,7 @@
 layout: page
 title: 문자열 자르기 ( substr , substring , slice )
 parent: 자바스크립트
-nav_order: 3
+nav_order: 4
 has_children: false
 permalink: /js/str_substring_slice/
 ---

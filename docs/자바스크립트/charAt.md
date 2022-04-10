@@ -2,7 +2,7 @@
 layout: page
 title: charAt함수 vs 대괄호 참조 (특정 위치 문자 찾기)
 parent: 자바스크립트
-nav_order: 4
+nav_order: 15
 has_children: false
 permalink: /js/charAt/
 ---

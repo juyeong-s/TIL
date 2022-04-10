@@ -2,7 +2,7 @@
 layout: page
 title: async await
 parent: 자바스크립트
-nav_order: 14
+nav_order: 16
 has_children: false
 permalink: /js/asyncawait/
 ---

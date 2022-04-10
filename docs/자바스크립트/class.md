@@ -2,7 +2,7 @@
 layout: page
 title: 클래스
 parent: 자바스크립트
-nav_order: 11
+nav_order: 14
 has_children: false
 permalink: /js/class/
 ---

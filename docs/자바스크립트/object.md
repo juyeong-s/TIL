@@ -2,7 +2,7 @@
 layout: page
 title: 객체(object)
 parent: 자바스크립트
-nav_order: 2
+nav_order: 10
 has_children: false
 permalink: /js/object/
 ---

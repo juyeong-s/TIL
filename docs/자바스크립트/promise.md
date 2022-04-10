@@ -2,7 +2,7 @@
 layout: page
 title: promise 패턴
 parent: 자바스크립트
-nav_order: 12
+nav_order: 7
 has_children: false
 permalink: /js/promise/
 ---
