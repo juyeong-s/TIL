@@ -64,7 +64,7 @@ permalink: /js/closure-1/
 ![code](https://user-images.githubusercontent.com/63364990/162625314-57d0fa19-aabb-403a-9873-92d1d311c872.png)
 
 위 예제의 foo함수 내부에서 bar함수가 호출되어 실행 중인 시점의 실행 컨텍스트는 다음과 같다.  
-<img src="https://user-images.githubusercontent.com/63364990/162635467-71319132-9fb9-4189-a6df-9b35956d6ed1.jpg" width="300" height="400" />
+<img src="https://user-images.githubusercontent.com/63364990/162635467-71319132-9fb9-4189-a6df-9b35956d6ed1.jpg" width="300" height="350" />
 
 
 foo함수와 bar함수는 모두 전역에서 선언되었다. 따라서 두 함수 모두 전역 코드가 평가되는 시점에 함수 객체를 생성하고, 전역 객체 window의 메서드가 된다.  
