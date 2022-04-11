@@ -57,40 +57,70 @@
 // const innerFunc = outer();  // 3번
 // innerFunc();    // 4번 -> 10
 
-function foo() {
-  const x = 1;
-  const y = 2;
+// function foo() {
+//   const x = 1;
+//   const y = 2;
 
-  function bar() {
-    const z = 3;
-    console.log(z);
-  }
-  return bar;
-}
+//   function bar() {
+//     const z = 3;
+//     console.log(z);
+//   }
+//   return bar;
+// }
 
-const bar = foo();
-bar();
+// const bar = foo();
+// bar();
 
-function foo() {
-  const x = 1;
+// function foo() {
+//   const x = 1;
 
-  function bar() {
-    console.log(x);
-  }
-  bar();
-}
+//   function bar() {
+//     console.log(x);
+//   }
+//   bar();
+// }
 
-foo();
+// foo();
 
-function foo() {
-  const x = 1;
-  const y = 2;
+// function foo() {
+//   const x = 1;
+//   const y = 2;
 
-  function bar() {
-    console.log(x);
-  }
-  return bar;
-}
+//   function bar() {
+//     console.log(x);
+//   }
+//   return bar;
+// }
 
-const bar = foo();
-bar();
+// const bar = foo();
+// bar();
+
+// let count = 0;
+
+// const increase = function () {
+//   return ++count;
+// };
+
+// console.log(increase()); // 1
+// console.log(increase()); // 2
+// console.log(increase()); // 3
+
+// const increase = function () {
+//   let count = 0;
+//   return ++count;
+// };
+
+// console.log(increase()); // 1
+// console.log(increase()); // 1
+// console.log(increase()); // 1
+
+const increase = (function () {
+  let count = 0;
+  return function () {
+    return count;
+  };
+})();
+
+console.log(increase()); // 1
+console.log(increase()); // 2
+console.log(increase()); // 3
