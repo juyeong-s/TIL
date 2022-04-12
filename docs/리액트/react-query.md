@@ -138,24 +138,24 @@ useQuery(['todos'], ...);
 - 아래의 코드는 `id`가 존재할 때만 쿼리 요청을 한다는 의미의 코드이다.  
   ![무제](https://user-images.githubusercontent.com/63364990/162573575-cfa2388f-3dd6-452b-8006-1d616dd109b5.png)
 
-**retry (boolean | number | (failureCount: number, error: TError) => boolean)**
+retry (boolean | number | (failureCount: number, error: TError) => boolean)
 
 - 실패한 쿼리를 재시도하는 옵션이다.
 - number: 3 => 실패한 쿼리를 3번 재시도 한다.
 - `true`: 실패한 쿼리를 무한 재시도한다.
 - `false`: 실패한 쿼리를 재시도하지 않는다.
 
-**staleTime (number | Infinity)**
+staleTime (number | Infinity)
 
 - 데이터가 `fresh` 상태로 유지되는 시간이다. 해당 시간이 지나면 `stale` 상태가 된다.
 - `default`는 `0`
 
-**cacheTime (number | Infinity)**
+cacheTime (number | Infinity)
 
 - `inactive` 상태인 캐시 데이터가 메모리에 남아있는 시간이다. 이 시간이 지나면 캐시 데이터는 가비지 컬렉터(GC)에 의해 메모리에서 제거된다.
 - `default`는 `5분`
 
-**refetchOnMount (boolean | "always")**
+refetchOnMount (boolean | "always")
 
 - 데이터가 `stale` 상태일 경우 마운트 시 마다 `refetch`를 실행하는 옵션이다.
 - `always`: 마운트 시 마다 매번 `refetch`를 실행한다.
