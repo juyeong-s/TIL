@@ -86,4 +86,5 @@ export default function InputSample() {
 
 ### 참고
 
+[벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/basic/10-useRef.html)
 [React Infinite scroll 구현하기](https://y0c.github.io/2019/06/30/react-infinite-scroll/)
