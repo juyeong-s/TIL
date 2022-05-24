@@ -178,7 +178,7 @@ box1에만 `flex-shrink: 0;`을 적용한 결과, container의 크기가 줄어�
 이때 box1, box2는 각각 2, 3배 작게 줄어들게 된다.
 크기는 item안의 content(text같은 것들)가 변경되지 않을 때 까지만 줄어들게 된다. 왜냐면 디폴트로 `min-width: auto`, `min-height: auto`로 설정되어 있기 때문이다.
 
-[3](https://user-images.githubusercontent.com/63364990/169950178-81c845ce-ddc5-43be-8f09-32805b76e67d.png)  
+![3](https://user-images.githubusercontent.com/63364990/169950178-81c845ce-ddc5-43be-8f09-32805b76e67d.png)  
 최소한으로 줄어들도록 하려면 `min-width: 0`, `min-height: 0`, `overflow: hidden`(visible 빼고 모두 가능) 으로 설정해주면 content를 무시하고 줄어들게 된다.
 
 ## 4\. flex
