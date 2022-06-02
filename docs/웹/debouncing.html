@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="main" style="height: 300vh">
+      <div style="position: fixed">
+        <h3>아무 처리도 하지 않았을 경우</h3>
+        <div>
+          <label>이벤트 발생 : </label>
+          <span id="count">0</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("scroll", function (e) {
+      console.log("스크롤 이벤트 발생");
+      const count = document.getElementById("count");
+      count.innerText = parseInt(count.innerText) + 1;
+    });
+  </script>
+</html>

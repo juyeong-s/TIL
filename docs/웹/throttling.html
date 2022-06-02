@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="main" style="height: 300vh">
+      <div style="position: fixed">
+        <h3>Throttling 적용</h3>
+        <div>
+          <label>이벤트 발생 : </label>
+          <span id="count">0</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let throttler;
+    window.addEventListener("scroll", function (e) {
+      console.log(throttler);
+      if (throttler) {
+        return;
+      }
+      throttler = setTimeout(function () {
+        console.log("스크롤 이벤트 발생");
+        const count = document.getElementById("count");
+        count.innerText = parseInt(count.innerText) + 1;
+        throttler = null;
+      }, 300);
+    });
+  </script>
+</html>
