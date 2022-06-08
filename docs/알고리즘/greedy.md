@@ -46,6 +46,6 @@ permalink: /algo/greedy
 - 선택된 동전들의 합이 거슬러 줄 금액과 일치하는지 검사한다.
 - 액수가 부족하면 1번 과정부터 다시 반복한다.
 
-# 레퍼런스
+## 레퍼런스
 
 [[알고리즘] 탐욕 알고리즘(Greedy Algorithm)](https://hanamon.kr/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-greedy-algorithm/)
