@@ -515,7 +515,7 @@ for (let i = 0; i < len; i++) {
 
 [NAVER D2](https://d2.naver.com/helloworld/59361)
 
-[Javascript Environment | PoiemaWeb](https://poiemaweb.com/js-browser)
+[Javascript Environment, PoiemaWeb](https://poiemaweb.com/js-browser)
 
 [Reflow와 Repaint에 대하여](https://devowen.com/463)
 
