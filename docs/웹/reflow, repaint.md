@@ -65,11 +65,11 @@ reflow는 말그대로 다시 플로우를 정하는 것이다. **레이아웃**
 
 이 과정에서는 생성된 DOM 노드의 레이아웃 수치(너비, 높이, 위치 등) 변경 시 영향 받은 모든 노드의(자신, 자식, 부모, 조상) 수치를 다시 계산하여**(Recalcurate)**, **렌더 트리를 재생성하는 과정**이다. 또한, `Reflow` 과정이 끝난 후 재 생성된 렌더 트리를 다시 그리게 되는데 이 과정을 `Repaint` 라 한다.
 
-![Reflow 단계](https://user-images.githubusercontent.com/63364990/210231693-c8138e01-7aeb-4911-8a92-4d8d0f5cd9fc.png)png)
+![Reflow 단계](https://user-images.githubusercontent.com/63364990/210231693-c8138e01-7aeb-4911-8a92-4d8d0f5cd9fc.png)
 
 **Reflow 발생 예시코드**
 
-```jsx
+```js
 function reFlow() {
   document.getElementById("container").style.width = "600px";
   return false;
@@ -91,7 +91,7 @@ repaint 과정은 위에서 말한 것처럼 `Reflow` 과정이 끝난 후 재 
 
 **Repaint 발생 예시코드**
 
-```jsx
+```js
 function rePaint() {
   document.getElementById("container").style.backgroundColor = "red";
   return false;
@@ -295,7 +295,7 @@ Performance 패널에서 reflow div를 클릭했을 때 레이아웃이 그려�
 
 많은 차이는 아니지만 인라인 스타일을 사용하지 않았을 때 더 빠르게 DOM이 그려지는 것을 알 수 있다.
 
-### 3. \***\*애니메이션이 있는 노드는 position을 fixed 또는 absolute로 지정한다.\*\***
+### 3. 애니메이션이 있는 노드는 position을 fixed 또는 absolute로 지정한다.
 
 애니메이션 효과는 많은 reflow 비용을 발생시킨다. 그렇기 때문에 position을 fixed나 absolute로 지정하여 지정된 노드를 전체 노드에서 분리시켜 해당 노드에서만 reflow가 발생하도록 제한시킬 수 있다.
 
@@ -390,13 +390,13 @@ position을 absoulte나 fixed로 지정하지 않았을 경우는 5.8ms가 소�
 
 ### 4. `<table>` 레이아웃을 피한다.
 
-<table> 태그는 점진적으로 렌더링되지 않고, 모두 로드되고 테이블의 너비가 계산된 후 화면에 그려진다.
+`<table>` 태그는 점진적으로 렌더링되지 않고, 모두 로드되고 테이블의 너비가 계산된 후 화면에 그려진다.
 
 콘텐츠의 값에 따라 테이블 너비가 계산되기 때문에, 테이블 콘텐츠의 작은 변경만 있어도 테이블 너비가 다시 계산되고 테이블의 모든 노드들이 Reflow가 발생한다.
 
 `<table>`을 사용할 때 `table-layout: fixed` 값을 지정하는 것이 좋다. 표 크기를 고정하는 것이다. `table-layout: fixed`는 테이블의 콘텐츠의 길이에 따라 테이블의 너비가 계산되는 것이 아니기 때문에, `table-layout`의 기본 값인 `auto`에 비해 성능이 더 좋다.
 
-### 5. **CSS 하위 선택자를 최소화한다.**
+### 5. CSS 하위 선택자를 최소화한다.
 
 CSS 하위 선택자를 최소화하는 것은 Reflow 횟수를 줄이는 방법이 아니라 렌더 트리 계산을 최소화하는 방법에 대한 내용입니다.
 
@@ -431,11 +431,11 @@ CSS 하위 선택자를 최소화하는 것은 Reflow 횟수를 줄이는 방법
 위의 코드와 같이 CSS 하위 선택자를 최소화하는 것이 렌더링 성능에 더 좋다.
 렌더 트리는 DOM과 CSSOM이 합쳐져서 만들어진다. DOM은 HTML이 파싱 되어 만들어진 트리이고, CSSOM은 CSS가 파싱 되어 만들어진 트리다. 두 트리를 결합하여 렌더 트리를 만드는데, CSS 하위 선택자가 많아지면 CSSOM 트리의 깊이(Depth)가 깊어지게 되고 결국 렌더 트리를 만드는 시간이 더 오래 걸릴 수 있다.
 
-### 6. \***\*숨겨진 노드의 스타일을 변경한다.\*\***
+### 6. 숨겨진 노드의 스타일을 변경한다.
 
 display: none 으로 숨겨진 노드를 변경할 때는 reflow가 발생하지 않는다. 숨겨진 노드를 표시하기 전에 노드의 컨텐츠를 먼저 변경한 후 화면에 나타내면 reflow를 줄일 수 있다.
 
-### 7. **클래스를 혹은 `cssText` 사용하여 한 번에 스타일을 변경한다.**
+### 7. 클래스를 혹은 `cssText` 사용하여 한 번에 스타일을 변경한다.
 
 스타일을 변경할 때, 스타일을 각각 변경할 경우 추가 Reflow가 발생할 수 있기 때문에 한 번에 스타일을 변경하는 것이 좋다.
 
@@ -467,7 +467,7 @@ for (let i = 0; i < div.length; i++) {
 
 위의 코드는 class, `cssText`를 사용하여 한 번에 스타일을 바꾸는 방법이다.
 
-### 8. **DOM 사용을 최소화한다.**
+### 8. DOM 사용을 최소화한다.
 
 Reflow 비용을 줄이기 위해서 DOM 노드를 사용을 최소화해야 한다. 그 방법 중 하나가 DOM Fragment를 사용하여 DOM을 추가할 때 DOM 접근을 최소화하는 방법이다.
 
